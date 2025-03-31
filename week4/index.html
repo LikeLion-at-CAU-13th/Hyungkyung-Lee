@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>가위바위보</title>
+    <title>Rock Scissors Paper</title>
   </head>
 
   <body class="change">
     <div id="header-wrapper" class="row">
-      <header id="title">가위바위보</header>
+      <header id="title">Rock Scissors Paper</header>
       <div class="row">
         <button>
           <i
@@ -18,18 +18,7 @@
             class="fa-solid fa-arrow-rotate-left change-reverse"
           ></i>
         </button>
-        <input id="night_day" type="button" value="night" onclick=" // javascript랑 html 연동시키기기
-          if (document.querySelector('#night_day').value === 'night'){
-            document.querySelector('body').style.backgroundColor = 'black';
-            document.querySelector('body').style.color = 'white';
-            document.querySelector('body').style.border = 'white';  // border 색상 변경 X
-            document.querySelector('#night_day').value = 'day';
-          }  else {
-            document.querySelector('body').style.backgroundColor = 'white';
-            document.querySelector('body').style.color = 'black';
-            document.querySelector('#night_day').value = 'night';
-          }
-        ">
+        <input id="day-night" type="button" value="night">
       </div>
     </div>
 

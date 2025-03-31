@@ -14,15 +14,18 @@ const scissorsBtn = document.getElementById("scissors");
 const paperBtn = document.getElementById("paper");
 
 const resetBtn = document.getElementById("reset-button");
-//const nightBtn = document.getElementById("day-night");
-//const body = document.getElementsByClassName("change");
+const nightBtn = document.getElementById("day-night");
+const body = document.querySelector('body');
+const changeBorder = document.getElementById("contents-wrapper");
+const changeLine = document.getElementsByClassName("title");
+
 
 // 2. 이벤트 설정
 rockBtn.addEventListener("click", displayMyChoice);
 scissorsBtn.addEventListener("click", displayMyChoice);
 paperBtn.addEventListener("click", displayMyChoice);
 resetBtn.addEventListener("click", resetScore);
-//nightBtn.addEventListener("click", dayNight);
+nightBtn.addEventListener("click", dayNight);
 
 // 3. displayMyChoice 함수 작성
 function displayMyChoice(e) {
@@ -117,16 +120,20 @@ function resetScore() {
 
 // 8. day_night 함수
 
-/* function dayNight() {
+function dayNight() {
     if (nightBtn.value === "night") {
         body.style.backgroundColor = 'black';
         body.style.color = 'white';
-        body.style.border = 'white';
+        changeBorder.style.border = '4px solid white';
+        changeLine[0].style.borderBottom = '3px solid white';
+        changeLine[1].style.borderBottom = '3px solid white';
         nightBtn.value = "day";
     } else {
         body.style.backgroundColor = 'white';
         body.style.color = 'black';
-        body.style.border = 'black';
+        changeBorder.style.border = '4px solid black';
+        changeLine[0].style.borderBottom = '3px solid black';
+        changeLine[1].style.borderBottom = '3px solid black';
         nightBtn.value = "night";
     }
-} */
+}
