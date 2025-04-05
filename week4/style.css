@@ -22,6 +22,7 @@ button {
 .row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 25px;
 }
 
@@ -49,6 +50,48 @@ button {
 #title {
   font-size: 30px;
 }
+
+.toggle-switch {
+  width: 60px;
+  height: 30px;
+  display: block;
+  position: relative;
+  border-radius: 30px;
+  background-color: black;
+}
+
+.toggle-button {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 16%;
+  left: 30px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  transform: translateX(-25px);
+  transition: transform 0.5s ease;
+}
+
+.is-active-button {
+  background-color: black;
+  transform: translateX(5px);
+  transition: transform 0.5s ease;
+}
+
+.is-active-switch {
+  background-color: white;
+}
+
+.night-body {
+  background-color: black;
+  color: white;
+}
+
+.night-border {
+  border: 4px solid white;
+}
+
 
 /* contents-wrapper 영역 */
 #contents-wrapper {

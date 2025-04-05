@@ -16,8 +16,10 @@ const paperBtn = document.getElementById("paper");
 const resetBtn = document.getElementById("reset-button");
 const nightBtn = document.getElementById("day-night");
 const body = document.querySelector('body');
-const changeBorder = document.getElementById("contents-wrapper");
-const changeLine = document.getElementsByClassName("title");
+const changeBorder = document.getElementsByClassName("contents");
+const changeLine = document.querySelector(".title");
+let toggleSwitch = document.querySelector(".toggle-switch");
+let toggleButton = document.querySelector(".toggle-button");
 
 
 // 2. 이벤트 설정
@@ -25,7 +27,7 @@ rockBtn.addEventListener("click", displayMyChoice);
 scissorsBtn.addEventListener("click", displayMyChoice);
 paperBtn.addEventListener("click", displayMyChoice);
 resetBtn.addEventListener("click", resetScore);
-nightBtn.addEventListener("click", dayNight);
+nightBtn.addEventListener("click", changeNightMode);
 
 // 3. displayMyChoice 함수 작성
 function displayMyChoice(e) {
@@ -120,7 +122,7 @@ function resetScore() {
 
 // 8. day_night 함수
 
-function dayNight() {
+/*function changeNightMode() {
     if (nightBtn.value === "night") {
         body.style.backgroundColor = 'black';
         body.style.color = 'white';
@@ -128,6 +130,11 @@ function dayNight() {
         changeLine[0].style.borderBottom = '3px solid white';
         changeLine[1].style.borderBottom = '3px solid white';
         nightBtn.value = "day";
+
+        toggleSwitch[0].style.backgroundColor = 'white';
+        //toggleButton[0].style.backgroundColor = 'black';
+        //toggleButton[0].style.left = '35px';
+        toggleButton.classList.toggle('is-active');
     } else {
         body.style.backgroundColor = 'white';
         body.style.color = 'black';
@@ -135,5 +142,17 @@ function dayNight() {
         changeLine[0].style.borderBottom = '3px solid black';
         changeLine[1].style.borderBottom = '3px solid black';
         nightBtn.value = "night";
-    }
+
+        toggleSwitch[0].style.backgroundColor = 'black';
+        //toggleButton[0].style.backgroundColor = 'white';
+        //toggleButton[0].style.left = '4px';
+    } 
+}*/
+
+function changeNightMode() {
+    if (nightBtn.value === "night") {
+        body.classList.toggle('night-body');
+        toggleButton.classList.toggle('is-active-button');
+        toggleSwitch.classList.toggle('is-active-switch');
+    } 
 }
