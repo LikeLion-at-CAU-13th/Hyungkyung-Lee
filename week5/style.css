@@ -33,6 +33,7 @@ font-size: 25px;
 font-weight: bold;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
+padding: 10px;
 }
 
 .to-do{
@@ -48,6 +49,8 @@ justify-content: center;
 height: 15%;
 min-height: 80px;
 background-color: #efdf91;
+gap: 20px;
+padding: 15px;
 }
 
 #input-box{
@@ -81,14 +84,28 @@ padding-right: 10px;
 padding-left: 10px;
 }
 
-.all-com-button {
-display: flex;
-width: 80%;
-justify-content: center;
-align-items: center;
-border-radius: 10px;
-background-color: whitesmoke;
-padding: 5px;
+#all-com-button {
+color: white;
+border-radius: 30px;
+background-color: #4c86bc;
+padding: 10px 15px 10px 15px;
+font-family:'Times New Roman', Times, serif;
+}
+
+#all-com-button:hover {
+opacity: 50%;
+}
+
+#all-del-button {
+color: white;
+border-radius: 30px;
+background-color: #e6c13a;
+padding: 10px 15px 10px 15px;
+font-family:'Times New Roman', Times, serif;
+}
+
+#all-del-button:hover {
+opacity: 50%;
 }
 
 #input-button{

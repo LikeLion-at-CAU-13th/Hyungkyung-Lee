@@ -5,7 +5,9 @@ import CompleteController from "./controller/CompleteController.js";
 const addBtn = document.getElementById('input-button');
 const input = document.querySelector('input');
 const allComBtn = document.getElementById('all-com-button');
+const allDelBtn = document.getElementById('all-del-button');
 const todoList = document.getElementById('to-do-list');
+const completeList = document.getElementById('complete-list');
 
 
 addBtn.addEventListener('click', () => {
@@ -19,5 +21,12 @@ allComBtn.addEventListener('click', ()=> {
         let allComplete = new CompleteController(thing.textContent);
         allComplete.addToComplete();
         todoList.removeChild(thing);
+    });
+})
+
+allDelBtn.addEventListener('click', ()=> {
+    const completeThings = Array.from(completeList.children).filter(child => !child.classList.contains('title'));
+    completeThings.forEach(thing => {
+        completeList.removeChild(thing);
     });
 })
