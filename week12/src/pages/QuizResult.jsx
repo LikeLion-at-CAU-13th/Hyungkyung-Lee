@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
 import { result, score } from './QuizList';
 import { pickedAnswer } from './QuizDetail';
 
 const QuizDetail = () => {
     const navigate = useNavigate();
+    const [message, setMessage] = useState([]);
 
     const retry = () => {
         pickedAnswer.length = 0;
         navigate('/quizzes');
     }
+
+    useEffect( () => {
+        const fetchMessages = async () => {
+            const response = await axios.get(`https://week12-api-1cc7.onrender.com/api/result?score=${score}`);
+            setMessage(response.data);
+        };
+        fetchMessages();
+    }, []);
 
     const home = () => {
         pickedAnswer.length = 0;
@@ -20,6 +30,7 @@ const QuizDetail = () => {
     return (
         <Back>
             <Score> 당신의 점수는 <Highlight>{score}</Highlight>점 입니다!</Score>
+            <Message>{message.message}</Message>
             <ResultRow>
                 {result.map ((res, i) => (
                     <ResultItem>{i+1}번. {res}</ResultItem>
@@ -47,7 +58,17 @@ const Score = styled.div `
   font-size: 40px;
   color: #535353;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Message = styled.div `
+  font-size: 20px;
+  color: #535353;
+  font-weight: 600;
+  margin-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
