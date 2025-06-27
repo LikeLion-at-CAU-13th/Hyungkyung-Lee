@@ -5,7 +5,7 @@ import { emailAtom, partAtom, userNameAtom } from '../../recoil/atom';
 const Form = ({type, inputType}) => {
     const setUserNmae = useSetRecoilState(userNameAtom);
     const setEmail = useSetRecoilState(emailAtom);
-    const setPart = useSetRecoilState(partAtom);
+    // const setPart = useSetRecoilState(partAtom);
 
     const onChange = (e) => {
         const value = e.target.value;
@@ -13,9 +13,10 @@ const Form = ({type, inputType}) => {
             setUserNmae(value);
         } else if (inputType === '이메일') {
             setEmail(value);
-        } else if (inputType === '파트') {
-            setPart(value);
-        }
+        } 
+        // else if (inputType === '파트') {
+        //     setPart(value);
+        // }
     }
 
   return (

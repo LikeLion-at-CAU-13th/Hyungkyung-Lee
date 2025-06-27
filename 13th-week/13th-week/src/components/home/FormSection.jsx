@@ -3,15 +3,17 @@ import Form from './Form';
 import { Button } from '../layout/common';
 import { ThemeColorContext } from '../../context/context';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { emailAtom, isSubmittedAtom, partAtom, userNameAtom } from '../../recoil/atom';
 import styled from 'styled-components';
+import RadioForm, { radioOptions } from './RadioForm';
 
 const FormSection = () => {
     const mode = useContext(ThemeColorContext);
     const navigate = useNavigate();
     const setItSubmitted = useSetRecoilState(isSubmittedAtom);
     const [modalOpen, setModalOpen] = useState(false);
+    const [selectedValue, setSelectedValue] = useRecoilState(partAtom);
 
     const userName = useRecoilValue(userNameAtom);
     const email = useRecoilValue(emailAtom);
@@ -27,6 +29,10 @@ const FormSection = () => {
     const cancelBtn = () => {
       setModalOpen(false);
     }
+
+    const handleChange = (e) => {
+      setSelectedValue(e.target.value);
+    };
 
   return (
     <Main>
@@ -59,7 +65,7 @@ const FormSection = () => {
       <Sub>
         <Form type='home' inputType='이름'/>
         <Form type='email' inputType='이메일'/>
-        <Form type='part' inputType='파트'/>
+        <RadioForm options={radioOptions} value={selectedValue} onChange={handleChange}/>
       </Sub>
       <Sub>
         <Button mode={mode.button} onClick={() => setModalOpen(true)}>
