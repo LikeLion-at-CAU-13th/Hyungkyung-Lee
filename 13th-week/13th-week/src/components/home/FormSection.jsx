@@ -7,12 +7,13 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { emailAtom, isSubmittedAtom, partAtom, userNameAtom } from '../../recoil/atom';
 import styled from 'styled-components';
 import RadioForm, { radioOptions } from './RadioForm';
+import { ModalContext } from '../../context/ModalContext';
 
 const FormSection = () => {
     const mode = useContext(ThemeColorContext);
     const navigate = useNavigate();
     const setItSubmitted = useSetRecoilState(isSubmittedAtom);
-    const [modalOpen, setModalOpen] = useState(false);
+    const {modalOpen, setModalOpen} = useContext(ModalContext);
     const [selectedValue, setSelectedValue] = useRecoilState(partAtom);
 
     const userName = useRecoilValue(userNameAtom);
