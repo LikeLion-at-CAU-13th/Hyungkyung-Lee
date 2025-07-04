@@ -28,7 +28,7 @@ const Home = () => {
         try {
             const result = await login(id, pw);
             localStorage.setItem("access", result.accessToken);
-            localStorage.setItem("refresh", result.resfreshToken);
+            localStorage.setItem("refresh", result.refreshToken);
             navigate("/mypage");
         } catch (error) {
             alert("아이디나 비밀번호를 다시 확인하세요.");

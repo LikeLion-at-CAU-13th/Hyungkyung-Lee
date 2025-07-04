@@ -19,15 +19,7 @@ const MyPage = () => {
         })
     }, []);
 
-    useEffect(() => {
-      if (!localStorage.getItem("refresh")) {
-        alert("토큰이 만료되어 로그인 페이지로 이동합니다.");
-        navigate('/');
-      }
-    }, []);
-  
-    if (loading) return <div>로딩 중...</div>;
-
+    
     const logout = async() => {
       try{
         localStorage.removeItem('access');
@@ -36,6 +28,17 @@ const MyPage = () => {
         alert("정상적으로 로그아웃이 되지 않았습니다.")
       }
     }
+
+    useEffect(() => {
+      if (!localStorage.getItem("refresh")) {
+        alert("토큰이 만료되어 로그인 페이지로 이동합니다.");
+        logout();
+        navigate('/');
+      }
+    });
+  
+    if (loading) return <div>로딩 중...</div>;
+
 
   return (
     <>

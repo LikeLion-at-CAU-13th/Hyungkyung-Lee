@@ -69,7 +69,7 @@ export const getNewRefreshToken = async() => {
         const refreshToken = localStorage.getItem('refresh');
 
         const result = await axios.post(
-            `${baseURL}/accounts/refreseh`,
+            `${baseURL}/accounts/refresh`,
             {
                 refreshToken,
             },
